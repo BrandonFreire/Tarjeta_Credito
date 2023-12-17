@@ -14,8 +14,8 @@ import java.util.Calendar;
  * Tarjeta de credito //Alexis 
  * Factura (mensaje:"Estoy facturando" + pasarle los datos del cliente para que los imprima + cajero + procutos + ) Leandro 
  * 
- * fecha de expiracion (controlar la fecha)
- * tipo de tarjeta (otro condicional para que reingrese los datos)
+ * fecha de expiracion (controlar la fecha) //Ismael 
+ * tipo de tarjeta (otro condicional para que reingrese los datos) --> Ismael (corregido)
  * corregir los espacios TC //Andree
  */
 public class Tarjeta_Credito {
@@ -61,12 +61,18 @@ public class Tarjeta_Credito {
     }
 
     public void setTipoTc(String tipoTC) {
-        tipoTC = tipoTC.toLowerCase();
+        //tipoTC = tipoTC.toLowerCase();
+        Scanner ingreso = new Scanner(System.in);
         do {
             if (tipoTC.length()==4 && tipoTC.toLowerCase().equals("visa")) {
                 this.tipoTC = tipoTC.toUpperCase();
                 break;
-            } else{ 
+            } else if (tipoTC.isEmpty() || !tipoTC.matches("[a-zA-Z]+")) {
+                System.out.println("Error: Ha ingresado numeros o ha ingresado un espacio vacio.");
+                System.out.println("Ingrese nuevamente el tipo de tarjeta:");
+                tipoTC = ingreso.nextLine();
+                this.tipoTC = tipoTC;                
+            }else{ 
                 System.out.println("El tipo de Tarjeta de Credito no es valido, solo se admiten VISA.");
                 for (int i = 0; i < 50; i++) {
                     System.out.print(" ");
