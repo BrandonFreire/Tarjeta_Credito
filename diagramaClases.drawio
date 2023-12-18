@@ -1,0 +1,13 @@
+<mxfile host="65bd71144e">
+    <diagram id="Gg3ZUFnOSFuXfEVnhARs" name="Page-1">
+        <mxGraphModel dx="708" dy="611" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Producto&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;- codigo: String&lt;br&gt;- nombre: String&lt;br&gt;- precioVenta: String&amp;nbsp;&lt;br&gt;- precioBeneficio: String&lt;br&gt;- stock: String&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ setCodigo(String codigo): void&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ getNombre(): String&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ setNombre(String nombre) : void&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ getPrecioVenta(): String&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ setPrecioVenta(String precioVenta) : void&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ getPrecioBeneficio(): String&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ setPrecioBeneficio(String precioBeneficio) : void&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ getStock(): String&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ setStock(String stock) : void&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ getCodigo(): String&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ void mostrarProducto(): void&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ Producto()&lt;/p&gt;&lt;p class=&quot;MsoNormal&quot;&gt;+ main(String[] args) : void&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;overflow=fill;fontColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="88" y="112" width="284" height="541" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
