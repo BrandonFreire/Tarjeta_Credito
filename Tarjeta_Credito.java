@@ -17,6 +17,7 @@ import java.util.Date;
  * 
  * fecha de expiracion (controlar la fecha) //Ismael 
  * tipo de tarjeta (otro condicional para que reingrese los datos) --> Ismael (corregido)
+ * fecha de expedicion --> Ismael (corregido)
  * corregir los espacios TC //Andree
  */
 public class Tarjeta_Credito {
@@ -223,16 +224,31 @@ public class Tarjeta_Credito {
     public void setClave(String clave) {
         Scanner ingresarDat = new Scanner(System.in);
         do {
-            if (clave.length() == 7) {
+            
+                if ((esCadenaNumerica(clave))&&(clave.length() == 6)) {
                 this.clave = clave;
                 break;
-            } else if (clave.isEmpty()|| clave.length()!=7) {
-                System.out.println("Ha excedido los caracteres o ha ingresado menos de los requeridos (max:6)" + "\nVuelva a ingresarla");
-                this.clave = ingresarDat.nextLine();
+            } else if ((clave.isEmpty()) || (clave.length()!=6) || (!esCadenaNumerica(clave))) {
+                System.out.println("Ha excedido los caracteres, ha ingresado menos de los requeridos (max:6) o ha ingresado letras en lugar de numeros" + "\nVuelva a ingresarla");
+                clave = ingresarDat.nextLine();
                 this.clave=clave;
-            }        
+            }                
         } while (true);
     }
+    /**
+     * Funcion que comprueba que todos lo ingresado por consola sea numerico 
+     * @param cadena
+     * @return
+     */
+    private static boolean esCadenaNumerica(String cadena) {
+        for (char c : cadena.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false; 
+            }
+        }
+        return true; 
+    }
+
 
     // getter/setter de CVV
     public String getCVV() {
@@ -241,19 +257,24 @@ public class Tarjeta_Credito {
 
     public void setCVV(String CVV) {
         Scanner ingresoDat = new Scanner(System.in);
-        if (CVV.length() == 3) {
-            this.CVV = CVV;
-        } else {
-            System.out.println("Codigo CVV incorrecto" + "\nVuelva a ingresarlo");
-            this.CVV = ingresoDat.nextLine();
-        }
+        do {
+            if (CVV.length() == 3) {
+                this.CVV = CVV;
+                break;
+            } else if((CVV.isEmpty())||(CVV.length()!=3)) {
+                System.out.println("Codigo CVV incorrecto" + "\nVuelva a ingresarlo");
+                CVV = ingresoDat.nextLine();
+                this.CVV=CVV;
+            }        
+        } while (true);
+
     }
 
     public void crearTC() {
         Scanner ingreso = new Scanner(System.in);
 
         // ingresar banco
-        System.out.println("Ingrese el nombre de su banco");
+        /*System.out.println("Ingrese el nombre de su banco");
         setBanco(ingreso.nextLine());
         System.out.println(getBanco());
 
@@ -275,7 +296,7 @@ public class Tarjeta_Credito {
         // ingresar fecha de expedicion
         System.out.println("Ingrese el año de expedicion de su tarjeta");
         setFechaExpedicion(ingreso.nextLine());
-        System.out.println(getFechaExpedicion());
+        System.out.println(getFechaExpedicion());*/
 
 
         // ingresar la clave
