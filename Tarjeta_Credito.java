@@ -1,11 +1,3 @@
-import java.util.Scanner;
-import javax.sound.midi.SysexMessage;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-
 /**
  * diagrama caso de uso: (pasar al drawio) //Andree
  * 
@@ -17,12 +9,26 @@ import java.util.Date;
  * Factura (mensaje:"Estoy facturando" + pasarle los datos del cliente para que
  * los imprima + cajero + procutos + ) Leandro
  * 
- * fecha de expiracion (controlar la fecha) //Ismael
+ * tarjeta --> Ismael
+ * fecha de expiracion (controlar la fecha) -->Ismael
  * tipo de tarjeta (otro condicional para que reingrese los datos) --> Ismael
  * (corregido)
  * fecha de expedicion --> Ismael (corregido)
  * corregir los espacios TC //Andree
  */
+/**
+ * @autor Ismael Freire
+ * @date 17/12/2023
+ * @version 3.0
+ */
+import java.util.Scanner;
+import javax.sound.midi.SysexMessage;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Tarjeta_Credito {
     // Atributos de la clase tarjeta credito.
     private String nombreUsuario;
@@ -227,41 +233,7 @@ public class Tarjeta_Credito {
             }
         } while (true);
     }
-
-    /*
-     * public void setFechaExpiracion(String fechaExpiracion) {
-     * String mes, anio;
-     * Scanner ingreso = new Scanner(System.in);
-     * do {
-     * if (fechaExpiracion.matches("\\d{2}/\\d{4}")) {
-     * String[] fechaPartes = fechaExpiracion.split("/");
-     * if (fechaPartes.length == 2) {
-     * int ingresoMes = Integer.parseInt(fechaPartes[0]);
-     * int ingresoAnio = Integer.parseInt(fechaPartes[1]);
-     * Calendar calendario = Calendar.getInstance();
-     * int anioActual = calendario.get(Calendar.YEAR);
-     * int mesActual = calendario.get(Calendar.MONTH) + 1;
-     * if (ingresoAnio < anioActual) {
-     * fechaExpiracion = "Su tarjeta ha expirado";
-     * this.fechaExpiracion=fechaExpiracion;
-     * } else if ((ingresoMes < mesActual) && (ingresoAnio == anioActual)) {
-     * fechaExpiracion = "Su tarjeta ha expirado";
-     * this.fechaExpiracion=fechaExpiracion;
-     * } else {
-     * this.fechaExpiracion = fechaExpiracion;
-     * break;
-     * }
-     * }
-     * } else {
-     * System.out.println("Error en la introduccion de la fecha de expiración."
-     * + "\nIngrese nuevamente la fecha de expiracion");
-     * fechaExpiracion = ingreso.nextLine();
-     * this.fechaExpiracion = fechaExpiracion;
-     * }
-     * } while (true);
-     * }
-     */
-
+    
     // getter/setter de clave
     public String getClave() {
         return this.clave.replaceAll(".", "*");
