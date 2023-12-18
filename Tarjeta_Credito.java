@@ -1,9 +1,10 @@
 import java.util.Scanner;
-
 import javax.sound.midi.SysexMessage;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
-
+import java.util.Date;
 /**
  * diagrama caso de uso: (pasar al drawio) //Andree
  * 
@@ -93,13 +94,13 @@ public class Tarjeta_Credito {
     public void setNombreUsuario(String nombreUsuario) {
         Scanner ingreso = new Scanner(System.in);
         do {
-            if(nombreUsuario.isBlank()){
+            /*if(){
                 this.nombreUsuario = "No definido";
-            }else if (nombreUsuario.matches("[a-zA-Z]+"+" "+"[a-zA-Z]+")) {
+            }else*/if (nombreUsuario.matches("[a-zA-Z]+"+" "+"[a-zA-Z]+")) {
                 this.nombreUsuario = nombreUsuario;
                 break;  
-            } else {
-                System.out.println("Error: El nombre debe contener solo letras.");
+            } else if (nombreUsuario.isEmpty() || !nombreUsuario.matches("[a-zA-Z]+"+" "+"[a-zA-Z]+")) {
+                System.out.println("Error: El nombre debe contener solo letras o ha ingresado un espacio vacío.");
                 System.out.println("Ingrese nuevamente el nombre:");
                 nombreUsuario = ingreso.nextLine();
                 this.nombreUsuario = nombreUsuario;
@@ -130,21 +131,43 @@ public class Tarjeta_Credito {
 
     }
 
-    // getter/stter de fecha de expedicion
+    // getter/setter de fecha de expedicion
     public String getFechaExpedicion() {
         return this.fechaExpedicion;
     }
     public void setFechaExpedicion(String fechaExpedicion) {
         Scanner ingresoDat = new Scanner(System.in);
-        int enteroFecha = Integer.parseInt(fechaExpedicion);
-        if (enteroFecha < 2010 || enteroFecha > 2023) {
-            System.out.println(
-                    "Ha ingresado incorrectamente el año de EXPEDICION de su tarjeta" + "\nIngrese nuevamente el año:");
-            this.fechaExpedicion = ingresoDat.nextLine();
-        } else {
-            this.fechaExpedicion = fechaExpedicion;
-        }
+        //int enteroFecha = Integer.parseInt(fechaExpedicion);
+        do {
+            try {
+                LocalDate fecha = LocalDate.parse(fechaExpedicion+"-01-01");
+
+                // Verifica si el año está en el rango de 2010 a 2023
+                if (fecha.getYear() >= 2010 && fecha.getYear() <= 2023) {
+                    this.fechaExpedicion = fechaExpedicion;
+                    break;
+                } else if((fechaExpedicion.isEmpty()) || (!fechaExpedicion.matches("[a-zA-Z]+")) || (fechaExpedicion.length()!=4)){
+                    System.out.println("Ha ingresado incorrectamente el año de EXPEDICION de su tarjeta" +
+                            "\nIngrese nuevamente el año:");
+                    fechaExpedicion = ingresoDat.nextLine();
+                }
+            } catch (Exception e) {
+                System.out.println("Error al parsear la fecha. Ingrese nuevamente el año:");
+                fechaExpedicion = ingresoDat.nextLine();
+            }
+        } while (true);
     }
+        /*do {
+            if (enteroFecha > 2010 && enteroFecha < 2023) {
+                this.fechaExpedicion = fechaExpedicion;
+                break;
+            } else {
+                System.out.println("Ha ingresado incorrectamente el año de EXPEDICION de su tarjeta" + "\nIngrese nuevamente el año:");
+                this.fechaExpedicion = ingresoDat.nextLine();
+                this.fechaExpedicion = fechaExpedicion;
+            }        
+        } while (true);
+    }*/
 
     // getter/setter de fecha de expiracion
     public String getFechaExpiracion() {
@@ -199,17 +222,16 @@ public class Tarjeta_Credito {
 
     public void setClave(String clave) {
         Scanner ingresarDat = new Scanner(System.in);
-        if (clave.length() > 0 && clave.length() < 7) {
-            /*
-             * if (clave.equals("1234")) {
-             * this.clave = clave;
-             * }
-             */
-            this.clave = clave;
-        } else {
-            System.out.println("Ha excedido la cantidad maxima de caracteres para la clave" + "\nVuelva a ingresarla");
-            this.clave = ingresarDat.nextLine();
-        }
+        do {
+            if (clave.length() == 7) {
+                this.clave = clave;
+                break;
+            } else if (clave.isEmpty()|| clave.length()!=7) {
+                System.out.println("Ha excedido los caracteres o ha ingresado menos de los requeridos (max:6)" + "\nVuelva a ingresarla");
+                this.clave = ingresarDat.nextLine();
+                this.clave=clave;
+            }        
+        } while (true);
     }
 
     // getter/setter de CVV
@@ -250,15 +272,17 @@ public class Tarjeta_Credito {
         setNumeroTarjeta(ingreso.nextLine());
         System.out.println(getNumeroTarjeta());
 
+        // ingresar fecha de expedicion
+        System.out.println("Ingrese el año de expedicion de su tarjeta");
+        setFechaExpedicion(ingreso.nextLine());
+        System.out.println(getFechaExpedicion());
+
+
         // ingresar la clave
         System.out.println("Ingrese su clave personal para la tarjeta");
         setClave(ingreso.nextLine());
         System.out.println(getClave());
 
-        // ingresar fecha de expedicion
-        System.out.println("Ingrese el año de expedicion de su tarjeta");
-        setFechaExpedicion(ingreso.nextLine());
-        System.out.println(getFechaExpedicion());
 
         // ingresar fecha de expiracion
         /*System.out.println("Ingrese la fecha de expiracion de su tarjeta en el siguiente formato (mm/aa)");
