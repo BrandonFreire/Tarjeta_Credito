@@ -25,7 +25,11 @@ public class AppTC {
                         break;
                     case 3:
                         System.out.println("Seleccionaste crear cliente");
+                        break;
                     case 4:
+                        System.out.println("Saliendo...");
+                        break;
+                    case 5:
                         System.out.println("Saliendo...");
                         break;
                     default:
@@ -36,7 +40,7 @@ public class AppTC {
                     System.out.println("No has ingresado un número.");
                     ingreso.next();
                 }        
-            } while (opcion != 3);
+            } while (opcion != 5);
         ingreso.close();
     }
 }
