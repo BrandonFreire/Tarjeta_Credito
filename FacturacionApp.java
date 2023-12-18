@@ -79,7 +79,7 @@ class Factura {
     public void mostrarFactura() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         System.out.println("**********************************************");
-        System.out.println("*                  SUPERMAXIS                *");
+        System.out.println("*                  SUPERMAXI                 *");
         System.out.println("**********************************************");
         System.out.println("*               FACTURA DE COMPRA            *");
         System.out.println("**********************************************");
@@ -87,7 +87,7 @@ class Factura {
         System.out.println("*  Número de Factura: " + numeroFactura);
         System.out.println("*  Fecha de Emisión: " + sdf.format(fechaEmision));
         System.out.println("**********************************************");
-        System.out.println("                   Artículos");
+        System.out.println("*                   Artículos");
 
         for (Articulo articulo : articulos) {
             System.out.printf(" - %-20s $%.2f%n", articulo.getNombre(), articulo.getPrecio());
