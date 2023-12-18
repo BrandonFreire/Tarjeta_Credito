@@ -1,21 +1,25 @@
 import java.util.Scanner;
+
 public class AppTC {
     public static void main(String[] args) {
-        TarjetaDeCredito.TarjetaCredito(); //Llamar tarjeta de credito
-
+        TarjetaDeCredito.TarjetaCredito(); // Llamar tarjeta de credito
         Tarjeta_Credito tarjeta = new Tarjeta_Credito();
         Scanner ingreso = new Scanner(System.in);
-        int opcion=0;
+        int opcion = 0;
+        String opciontxt="";
         System.out.println("\n Tarjeta de credito");
-            do {
-                System.out.println("\n1. Crear una tarjeta.");
-                System.out.println("2. Mostrar tarjeta.");
-                System.out.println("3. Crear cliente");  
-                System.out.println("4. Mostrar cliente");
-                System.out.println("5. Salir"); 
-                System.out.print("Ingrese la opción: ");
-                if (ingreso.hasNextInt()) {     
-                opcion = ingreso.nextInt();           
+
+
+        do {
+            System.out.println("\n1. Crear una tarjeta.");
+            System.out.println("2. Mostrar tarjeta.");
+            System.out.println("3. Crear cliente");
+            System.out.println("4. Mostrar cliente");
+            System.out.println("5. Salir");
+            System.out.print("Ingrese la opción: ");
+            opciontxt = ingreso.nextLine();
+            if (opciontxt.matches("[1-9]")) {
+                opcion = Integer.parseInt(opciontxt);
                 switch (opcion) {
                     case 1:
                         System.out.println("Seleccionaste crear una tarjeta.");
@@ -29,32 +33,20 @@ public class AppTC {
                         System.out.println("Seleccionaste crear cliente");
                         break;
                     case 4:
-                        System.out.println("Saliendo...");
+                        System.out.println("Seleccionaste crear cliente");
                         break;
                     case 5:
                         System.out.println("Saliendo...");
+                        System.exit(0);
                         break;
                     default:
-                        System.out.println("Opción fuera de rango." + "\nSeleccione nuevamente una opcion:");
+                        System.out.println("Opción fuera de rango.");
                         break;
                 }
-                } else {
-                    System.out.println("No has ingresado un número.");
-                    ingreso.next();
-                }        
-            } while (opcion != 5);
+            } else if (opciontxt.isEmpty() || !opciontxt.matches("[1-9]")) {
+                System.out.println("No has ingresado nada o has ingresado caracteres");
+            }
+        } while (opciontxt.matches(".*[^0-9].*") || opciontxt.matches("[1-9]+") || opciontxt.isEmpty());
         ingreso.close();
     }
 }
-
-
-        /*Tarjeta_Credito tarjetaCredito = new Tarjeta_Credito();
-        Scanner sc = new Scanner(System.in);
-        //Nombre usuario
-        tarjetaCredito.setNombreUsuario("Ismael Freire");
-        System.out.println(tarjetaCredito.getNombreUsuario());
-        //Numero de tarjeta
-        tarjetaCredito.setNumeroTarjeta("0123456789123478");
-        System.out.println(tarjetaCredito.getNumeroTarjeta());
-        //Fecha*/
-

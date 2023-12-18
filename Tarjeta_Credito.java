@@ -22,7 +22,6 @@
  * @version 3.0
  */
 import java.util.Scanner;
-import javax.sound.midi.SysexMessage;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -106,11 +105,7 @@ public class Tarjeta_Credito {
     public void setNombreUsuario(String nombreUsuario) {
         Scanner ingreso = new Scanner(System.in);
         do {
-            /*
-             * if(){
-             * this.nombreUsuario = "No definido";
-             * }else
-             */if (nombreUsuario.matches("[a-zA-Z]+" + " " + "[a-zA-Z]+")) {
+            if (nombreUsuario.matches("[a-zA-Z]+" + " " + "[a-zA-Z]+")) {
                 this.nombreUsuario = nombreUsuario;
                 break;
             } else if (nombreUsuario.isEmpty() || !nombreUsuario.matches("[a-zA-Z]+" + " " + "[a-zA-Z]+")) {
@@ -233,7 +228,7 @@ public class Tarjeta_Credito {
             }
         } while (true);
     }
-    
+
     // getter/setter de clave
     public String getClave() {
         return this.clave.replaceAll(".", "*");
