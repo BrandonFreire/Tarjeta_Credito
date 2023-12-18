@@ -1,3 +1,7 @@
+/**
+ * @author Ivonne
+ *  Clase Producto
+ */
 public class Producto {
     private String codigo;
     private String nombre;
@@ -76,7 +80,7 @@ public class Producto {
         if (stock.isBlank()) {
             //System.out.println("Error: El stock no puede estar en blanco.");
              this.stock = "Error:  El stock no puede estar en blanco.";
-        } else if (stock.matches("[0-9]")) {
+        } else if (stock.matches("[0-9]+")) {
             this.stock = stock;
         } else {
             //System.out.println("Error: El formato del stock no es válido.");
