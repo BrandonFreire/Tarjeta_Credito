@@ -187,6 +187,7 @@ public class Tarjeta_Credito {
     public String getFechaExpiracion() {
         return fechaExpiracion;
     }
+
     public void setFechaExpiracion(String fechaExpiracion) {
         Scanner ingreso = new Scanner(System.in);
 
@@ -202,8 +203,17 @@ public class Tarjeta_Credito {
                     int mesActual = fechaActual.getMonthValue();
 
                     if (ingresoAnio < anioActual || (ingresoMes < mesActual && ingresoAnio == anioActual)) {
-                        this.fechaExpiracion = "Su tarjeta ha expirado";
-                        break;
+                        //this.fechaExpiracion = "Su tarjeta ha expirado";
+                        System.out.println("¡Su tarjeta ha expirado!");
+                        for (int i = 0; i < 50; i++) {
+                            System.out.print(" ");
+                            try {
+                                Thread.sleep(100);
+                            } catch (InterruptedException ie) {
+                            }
+                        }
+                        System.out.println("Lo sentimos...");
+                        System.exit(0);
                     } else {
                         this.fechaExpiracion = fechaExpiracion;
                         break;
@@ -218,47 +228,37 @@ public class Tarjeta_Credito {
         } while (true);
     }
 
-    /*public void setFechaExpiracion(String fechaExpiracion) {
-        String mes, anio;
-        Scanner ingreso = new Scanner(System.in);
-        do {
-            if (fechaExpiracion.matches("\\d{2}/\\d{4}")) {
-                String[] fechaPartes = fechaExpiracion.split("/");
-                if (fechaPartes.length == 2) {
-                    int ingresoMes = Integer.parseInt(fechaPartes[0]);
-                    int ingresoAnio = Integer.parseInt(fechaPartes[1]);
-                    Calendar calendario = Calendar.getInstance();
-                    int anioActual = calendario.get(Calendar.YEAR);
-                    int mesActual = calendario.get(Calendar.MONTH) + 1;
-                    if (ingresoAnio < anioActual) {
-                        fechaExpiracion = "Su tarjeta ha expirado";
-                        this.fechaExpiracion=fechaExpiracion;
-                    } else if ((ingresoMes < mesActual) && (ingresoAnio == anioActual)) {
-                        fechaExpiracion = "Su tarjeta ha expirado";
-                        this.fechaExpiracion=fechaExpiracion;
-                    } else {
-                        this.fechaExpiracion = fechaExpiracion;
-                        break;
-                    }
-                }
-            } else {
-                System.out.println("Error en la introduccion de la fecha de expiración."
-                        + "\nIngrese nuevamente la fecha de expiracion");
-                fechaExpiracion = ingreso.nextLine();
-                this.fechaExpiracion = fechaExpiracion;
-            }
-        } while (true);
-    }*/
-
     /*
-     * else if ( fechaPartes.length==2 ) {
-     * mes = fechaPartes[0];
-     * anio = fechaPartes[1];
-     * if (fechaPartes[1].equals("2023")) {
-     * this.fechaExpiracion = "Su tarjeta ha expirado";
-     * }else{
+     * public void setFechaExpiracion(String fechaExpiracion) {
+     * String mes, anio;
+     * Scanner ingreso = new Scanner(System.in);
+     * do {
+     * if (fechaExpiracion.matches("\\d{2}/\\d{4}")) {
+     * String[] fechaPartes = fechaExpiracion.split("/");
+     * if (fechaPartes.length == 2) {
+     * int ingresoMes = Integer.parseInt(fechaPartes[0]);
+     * int ingresoAnio = Integer.parseInt(fechaPartes[1]);
+     * Calendar calendario = Calendar.getInstance();
+     * int anioActual = calendario.get(Calendar.YEAR);
+     * int mesActual = calendario.get(Calendar.MONTH) + 1;
+     * if (ingresoAnio < anioActual) {
+     * fechaExpiracion = "Su tarjeta ha expirado";
+     * this.fechaExpiracion=fechaExpiracion;
+     * } else if ((ingresoMes < mesActual) && (ingresoAnio == anioActual)) {
+     * fechaExpiracion = "Su tarjeta ha expirado";
+     * this.fechaExpiracion=fechaExpiracion;
+     * } else {
+     * this.fechaExpiracion = fechaExpiracion;
+     * break;
+     * }
+     * }
+     * } else {
+     * System.out.println("Error en la introduccion de la fecha de expiración."
+     * + "\nIngrese nuevamente la fecha de expiracion");
+     * fechaExpiracion = ingreso.nextLine();
      * this.fechaExpiracion = fechaExpiracion;
      * }
+     * } while (true);
      * }
      */
 
@@ -323,7 +323,7 @@ public class Tarjeta_Credito {
         Scanner ingreso = new Scanner(System.in);
 
         // ingresar banco
-        /*System.out.println("Ingrese el nombre de su banco");
+        System.out.println("Ingrese el nombre de su banco");
         setBanco(ingreso.nextLine());
         System.out.println(getBanco());
 
@@ -350,15 +350,13 @@ public class Tarjeta_Credito {
         // ingresar la clave
         System.out.println("Ingrese su clave personal para la tarjeta");
         setClave(ingreso.nextLine());
-        System.out.println(getClave());*/
+        System.out.println(getClave());
 
         // ingresar fecha de expiracion
-        System.out.
-        println("Ingrese la fecha de expiracion de su tarjeta en el siguiente formato (mm/aa)");
+        System.out.println("Ingrese la fecha de expiracion de su tarjeta en el siguiente formato (mm/aa)");
         setFechaExpiracion(ingreso.nextLine());
         System.out.println(getFechaExpiracion());
-        
-        /* 
+
         // ingreso codigo CVV
         System.out.println("Ingrese el codigo cvv de la tarjeta:");
         setCVV(ingreso.nextLine());
@@ -372,7 +370,7 @@ public class Tarjeta_Credito {
             } catch (InterruptedException ie) {
             }
         }
-        System.out.println("¡La Tarjeta de Credito fue creada con exito!");*/
+        System.out.println("¡La Tarjeta de Credito fue creada con exito!");
     }
 
     public void mostrarTC() {
@@ -383,7 +381,7 @@ public class Tarjeta_Credito {
         System.out.println("| " + getNombreUsuario() + "                              |");
         System.out
                 .println("| " + getFechaExpedicion() + "                              "
-                        + /* getFechaExpiracion() + */"  |");
+                        + getFechaExpiracion() + "  |");
         System.out.println("|                                            |");
         System.out.println("|             " + getNumeroTarjeta() + "            |");
         System.out.println("----------------------------------------------");
