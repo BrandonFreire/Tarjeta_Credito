@@ -8,8 +8,6 @@ public class AppTC {
         int opcion = 0;
         String opciontxt="";
         System.out.println("\n Tarjeta de credito");
-
-
         do {
             System.out.println("\n1. Crear una tarjeta.");
             System.out.println("2. Mostrar tarjeta.");

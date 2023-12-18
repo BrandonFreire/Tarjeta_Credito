@@ -41,11 +41,17 @@ public class Tarjeta_Credito {
 
     // METODOS
 
-    // getter/setter de banco
+    /** getter de banco
+     * 
+     * @return
+     */
     public String getBanco() {
         return this.banco.toUpperCase();
     }
-
+    /** setter de banco
+     * 
+     * @param banco
+     */
     public void setBanco(String banco) {
         Scanner ingresoDat = new Scanner(System.in);
         do {
@@ -65,11 +71,17 @@ public class Tarjeta_Credito {
 
     }
 
-    // getter/setter de TIPO de tarjeta de credito
+    /**  getter de TIPO de tarjeta de credito
+     * 
+     * @return
+     */
     public String getTipoTC() {
         return this.tipoTC;
     }
-
+    /** setter de TIPO de tarjeta de credito
+     * 
+     * @param tipoTC
+     */
     public void setTipoTc(String tipoTC) {
         // tipoTC = tipoTC.toLowerCase();
         Scanner ingreso = new Scanner(System.in);
@@ -97,11 +109,17 @@ public class Tarjeta_Credito {
         } while (true);
     }
 
-    // getter/setter de NombreUsuario
+    /** getter de NombreUsuario
+     * 
+     * @return
+     */
     public String getNombreUsuario() {
         return this.nombreUsuario.toUpperCase();
     }
-
+    /** setter de NombreUsuario
+     * 
+     * @param nombreUsuario
+     */
     public void setNombreUsuario(String nombreUsuario) {
         Scanner ingreso = new Scanner(System.in);
         do {
@@ -117,11 +135,17 @@ public class Tarjeta_Credito {
         } while (true);
     }
 
-    // getter/setter de numero de tarjeta
+    /** getter de numero de tarjeta
+     * 
+     * @return
+     */
     public String getNumeroTarjeta() {
         return this.numeroTarjeta;
     }
-
+    /** setter de numero de tarjeta
+     * 
+     * @param numeroTarjeta
+     */
     public void setNumeroTarjeta(String numeroTarjeta) {
         Scanner ingresoDat = new Scanner(System.in);
         do {
@@ -141,11 +165,17 @@ public class Tarjeta_Credito {
 
     }
 
-    // getter/setter de fecha de expedicion
+    /** getter de fecha de expedicion
+     * 
+     * @return
+     */
     public String getFechaExpedicion() {
         return this.fechaExpedicion;
     }
-
+    /** setter de fecha de expedicion
+     * 
+     * @param fechaExpedicion
+     */
     public void setFechaExpedicion(String fechaExpedicion) {
         Scanner ingresoDat = new Scanner(System.in);
         do {
@@ -168,27 +198,18 @@ public class Tarjeta_Credito {
             }
         } while (true);
     }
-    /*
-     * do {
-     * if (enteroFecha > 2010 && enteroFecha < 2023) {
-     * this.fechaExpedicion = fechaExpedicion;
-     * break;
-     * } else {
-     * System.out.
-     * println("Ha ingresado incorrectamente el año de EXPEDICION de su tarjeta" +
-     * "\nIngrese nuevamente el año:");
-     * this.fechaExpedicion = ingresoDat.nextLine();
-     * this.fechaExpedicion = fechaExpedicion;
-     * }
-     * } while (true);
-     * }
-     */
 
-    // getter/setter de fecha de expiracion
+    /** getter de fecha de expiracion
+     * 
+     * @return
+     */
     public String getFechaExpiracion() {
         return fechaExpiracion;
     }
-
+    /** setter de fecha de expiracion
+     * 
+     * @param fechaExpiracion
+     */
     public void setFechaExpiracion(String fechaExpiracion) {
         Scanner ingreso = new Scanner(System.in);
 
@@ -204,7 +225,6 @@ public class Tarjeta_Credito {
                     int mesActual = fechaActual.getMonthValue();
 
                     if (ingresoAnio < anioActual || (ingresoMes < mesActual && ingresoAnio == anioActual)) {
-                        //this.fechaExpiracion = "Su tarjeta ha expirado";
                         System.out.println("¡Su tarjeta ha expirado!");
                         for (int i = 0; i < 50; i++) {
                             System.out.print(" ");
@@ -229,11 +249,17 @@ public class Tarjeta_Credito {
         } while (true);
     }
 
-    // getter/setter de clave
+    /** getter de clave
+     * 
+     * @return
+     */
     public String getClave() {
         return this.clave.replaceAll(".", "*");
     }
-
+    /** setter de clave
+     * 
+     * @param clave
+     */
     public void setClave(String clave) {
         Scanner ingresarDat = new Scanner(System.in);
         do {
@@ -266,11 +292,17 @@ public class Tarjeta_Credito {
         return true;
     }
 
-    // getter/setter de CVV
+    /** getter de CVV
+     * 
+     * @return
+     */
     public String getCVV() {
         return this.CVV;
     }
-
+    /** setter de CVV
+     * 
+     * @param CVV
+     */
     public void setCVV(String CVV) {
         Scanner ingresoDat = new Scanner(System.in);
         do {
@@ -285,7 +317,10 @@ public class Tarjeta_Credito {
         } while (true);
 
     }
-
+    
+    /**
+     * Metodo donde se creará la tarjeta usando los getter y setters
+     */
     public void crearTC() {
         Scanner ingreso = new Scanner(System.in);
 
