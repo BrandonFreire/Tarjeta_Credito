@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class AppTC {
     public static void main(String[] args) {
-        //TarjetaDeCredito.TarjetaCredito(); //Llamar tarjeta de credito
+        TarjetaDeCredito.TarjetaCredito(); //Llamar tarjeta de credito
 
         Tarjeta_Credito tarjeta = new Tarjeta_Credito();
         Scanner ingreso = new Scanner(System.in);
