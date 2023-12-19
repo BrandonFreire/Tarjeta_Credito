@@ -371,7 +371,7 @@ public class Tarjeta_Credito {
         System.out.println(getNumeroTarjeta());
 
         // ingresar fecha de expedicion
-        System.out.println("Ingrese el año de expedicion de su tarjeta");
+        System.out.println("Ingrese el año de expedicion de su tarjeta en el siguiente formato (aaaa)");
         setFechaExpedicion(ingreso.nextLine());
         System.out.println(getFechaExpedicion());
 
@@ -381,7 +381,7 @@ public class Tarjeta_Credito {
         System.out.println(getClave());
 
         // ingresar fecha de expiracion
-        System.out.println("Ingrese la fecha de expiracion de su tarjeta en el siguiente formato (mm/aa)");
+        System.out.println("Ingrese la fecha de expiracion de su tarjeta en el siguiente formato (mm/aaaa)");
         setFechaExpiracion(ingreso.nextLine());
         System.out.println(getFechaExpiracion());
 
