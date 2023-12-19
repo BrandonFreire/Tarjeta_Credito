@@ -376,7 +376,7 @@ public class Tarjeta_Credito {
         System.out.println(getFechaExpedicion());
 
         // ingresar la clave
-        System.out.println("Ingrese su clave personal para la tarjeta");
+        System.out.println("Ingrese su clave personal para la tarjeta (de 6 digitos)");
         setClave(ingreso.nextLine());
         System.out.println(getClave());
 
