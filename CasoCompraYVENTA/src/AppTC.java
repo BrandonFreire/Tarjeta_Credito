@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class AppTC {
     public static void main(String[] args) {
-        TarjetaDeCredito.TarjetaCredito(); // Llamar tarjeta de credito
+        //Tarjeta_Credito.Tarjeta_Credito(); // Llamar tarjeta de credito
         Tarjeta_Credito tarjeta = new Tarjeta_Credito();
         Scanner ingreso = new Scanner(System.in);
         int opcion = 0;
@@ -31,7 +31,7 @@ public class AppTC {
                         System.out.println("Seleccionaste crear cliente");
                         break;
                     case 4:
-                        System.out.println("Seleccionaste crear cliente");
+                        System.out.println("Seleccionaste mostrar cliente");
                         break;
                     case 5:
                         System.out.println("Saliendo...");

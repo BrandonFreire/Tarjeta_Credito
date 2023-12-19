@@ -18,6 +18,7 @@
  */
 /**
  * @autor Ismael Freire
+ * @autor Alexis Bautista
  * @date 17/12/2023
  * @version 3.0
  */
@@ -38,7 +39,15 @@ public class Tarjeta_Credito {
     private String tipoTC;
     private String CVV;
     private String clave;
+    private String monto;
 
+        //Constructor vacio 
+    public Tarjeta_Credito() {
+        }
+    
+        //Constructor con parametros
+    public Tarjeta_Credito(String Banco, String tipoTC, String numeroTarjeta, String nombreUsuario, String fechaExpedicion, String fechaExpiracion, String CVV, String clave){}
+    
     // METODOS
 
     /** getter de banco
@@ -317,6 +326,23 @@ public class Tarjeta_Credito {
         } while (true);
 
     }
+
+    /** monto
+     * 
+     * @return
+     */
+    public String getMonto() {
+        return monto;
+    }
+    public void setMonto(String monto) {
+        if (monto == "23.98") {
+            this.monto = monto;
+        }
+        else{
+            System.out.println("\nERROR: El monto no coincide con el de la tarjeta\n");
+            System.exit(0);
+        }
+    }    
     
     /**
      * Metodo donde se creará la tarjeta usando los getter y setters
@@ -381,20 +407,25 @@ public class Tarjeta_Credito {
         System.out.println("| " + getBanco() + "                            " + getTipoTC() + "  |");
         System.out.println("|                                            |");
         System.out.println("| " + getNombreUsuario() + "                              |");
-        System.out
-                .println("| " + getFechaExpedicion() + "                              "
-                        + getFechaExpiracion() + "  |");
+        System.out.println("|                                            |");
+        System.out.println("| " + getFechaExpedicion() + "                              "+ getFechaExpiracion() + "  |");
         System.out.println("|                                            |");
         System.out.println("|             " + getNumeroTarjeta() + "            |");
+        System.out.println("|                                            |");
         System.out.println("----------------------------------------------");
+        
         System.out.println("\nreverso");
         System.out.println("----------------------------------------------");
         System.out.println("|                                            |");
         System.out.println("|////////////////////////////////////////////|");
+        System.out.println("|                                            |");
         System.out.println("|  *                                         |");
         System.out.println("|  * *                                       |");
         System.out.println("|  * * *                               " + getCVV() + "   |");
+        System.out.println("|                                            |");
         System.out.println("|        SanaSana             Multicines     |");
         System.out.println("----------------------------------------------");
+        System.out.println("Su tarjeta tiene disponible...");
+        System.out.println("Un monto de "+getMonto());
     }
 }
