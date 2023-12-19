@@ -361,12 +361,12 @@ public class Tarjeta_Credito {
         System.out.println(getTipoTC());
 
         // ingresar nombre
-        System.out.println("Ingrese el nombre del titular de la tarjeta");
+        System.out.println("Ingrese el nombre del titular de la tarjeta (unicamente su nombre y apellido)");
         setNombreUsuario(ingreso.nextLine());
         System.out.println(getNombreUsuario());
 
         // ingresar numero de tarjeta
-        System.out.println("Ingrese el numero de su tarjeta");
+        System.out.println("Ingrese el numero de su tarjeta (junta y sin espacios)");
         setNumeroTarjeta(ingreso.nextLine());
         System.out.println(getNumeroTarjeta());
 
@@ -386,7 +386,7 @@ public class Tarjeta_Credito {
         System.out.println(getFechaExpiracion());
 
         // ingreso codigo CVV
-        System.out.println("Ingrese el codigo cvv de la tarjeta:");
+        System.out.println("Ingrese el codigo cvv de la tarjeta (recuerde que son tres digitos):");
         setCVV(ingreso.nextLine());
         System.out.println(getCVV());
 
